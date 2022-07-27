@@ -11,6 +11,13 @@
         <mkdir dir="${jarDir}"/>
     </target>
 
+    <path id="master-classpath">
+        <fileset dir="${jarDir}">
+           <include name="*.jar"/>
+        </fileset>
+     <!-- pathelement path="${build.dir}"/ -->
+     </path>
+
     <target name="compile" depends="dirs">
         <javac srcdir="${srcDir}" destdir="${classesDir}"/>
     </target>
@@ -18,4 +25,16 @@
     <target name="jar" depends="dirs,compile">
         <jar destfile="${jarDir}/HelloWorld.jar" basedir="${classesDir}"/>
     </target>
+
+    <target name="run" depends="dirs,compile,jar">
+        <java classname="HelloWorld">
+            <arg value="User"/>
+            <classpath>
+              <pathelement location="${jarDir}/HelloWorld.jar"/>
+              <pathelement path="${java.class.path}"/>
+            </classpath>
+          </java>
+    </target>
+
+
 </project>
