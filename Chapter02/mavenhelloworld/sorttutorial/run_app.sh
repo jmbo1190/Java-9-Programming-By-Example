@@ -1,0 +1,1 @@
+java -cp target/SortTutorial-1.0.0-SNAPSHOT.jar packt.java9.by.example.App
