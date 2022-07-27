@@ -11,13 +11,6 @@
         <mkdir dir="${jarDir}"/>
     </target>
 
-    <path id="master-classpath">
-        <fileset dir="${jarDir}">
-           <include name="*.jar"/>
-        </fileset>
-     <!-- pathelement path="${build.dir}"/ -->
-     </path>
-
     <target name="compile" depends="dirs">
         <javac srcdir="${srcDir}" destdir="${classesDir}"/>
     </target>
